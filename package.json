@@ -1,0 +1,23 @@
+{
+  "name": "back-express",
+  "version": "1.0.0",
+  "description": "repositorio back express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gemudesakio/back-Express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gemudesakio/back-Express/issues"
+  },
+  "homepage": "https://github.com/Gemudesakio/back-Express#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
