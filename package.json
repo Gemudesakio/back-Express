@@ -1,0 +1,38 @@
+{
+  "name": "back-express",
+  "version": "1.0.0",
+  "description": "repositorio back express",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./server.js",
+    "dev": "nodemon ./server.js",
+    "dbusers": "node ./models/data/users.js",
+    "dbcars": "node ./models/data/cars.js",
+    "dbbooks": "node ./models/data/books.js",
+    "dbmovies": "node ./models/data/movies.js",
+    "dbrestaurants": "node ./models/data/restaurants.js",
+    "dbsongs": "node ./models/data/songs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gemudesakio/back-Express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gemudesakio/back-Express/issues"
+  },
+  "homepage": "https://github.com/Gemudesakio/back-Express#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.12.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
