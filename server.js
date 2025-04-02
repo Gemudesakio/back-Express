@@ -4,6 +4,8 @@ import './config/database.js'
 import cors from 'cors'
 import morgan from 'morgan'
 import routerIndex from "./router/index.js"
+import not_fount_handler from "./middlewares/not_foud_handler.js"
+import error_handler from "./middlewares/error_handler.js"
 
 const server = express()
 const port = process.env.PORT || 8080
@@ -24,5 +26,7 @@ server.use(cors())
 server.use(morgan('dev'));
 server.use('/api',routerIndex)
 
+server.use(not_fount_handler)
+server.use(error_handler)
 
 server.listen(port,ready)
