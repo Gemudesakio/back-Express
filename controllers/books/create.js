@@ -1,12 +1,11 @@
-import User from "../../models/User.js"
+import Book from "../../models/Book.js"
 
 let create = async (req, res, next)=>{
     try {
-       let userData=req.body
-       
-       let newUser = await User.insertMany(userData)
+       let bookData=req.body
+       let newBook = await Book.insertMany(bookData)
        return res.status(201).json({
-         response: newUser
+         response: newBook
        })
         
     } catch (error) {

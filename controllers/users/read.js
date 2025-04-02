@@ -1,19 +1,13 @@
 
 import  User from '../../models/User.js'
-let allUsers = async (req,res)=>{
+let allUsers = async (req,res,next)=>{
  try {
    let all = await User.find()  //find metodo basico para hacer busqeudas
    return res.status(200).json({
     response: all
    }) 
  } catch (error) {
-   return res.status(500).json({
-    success: false,
-    message: 'Error al obtener los usuarios',
-    error: error.message             
-
-   } )
-    
+  next(error)    
  }
 }
 
@@ -22,15 +16,11 @@ let userByName = async (req,res, next)=>{
     let nameQuery = req.params.nameParams
     let all = await User.find({name: nameQuery })  //find metodo basico para hacer busqeudas
     return res.status(200).json({
-     response: all
+      success:true,
+      response: all
     }) 
   } catch (error) {
-    return res.status(500).json({
-     success: false,
-     message: 'Error al obtener los usuarios',
-     error: error.message             
- 
-    } )
+    next(error)
      
   }
  }
@@ -44,13 +34,7 @@ let userByName = async (req,res, next)=>{
      response: all
     }) 
   } catch (error) {
-    return res.status(500).json({
-     success: false,
-     message: 'Error al obtener los usuarios',
-     error: error.message             
- 
-    } )
-     
+    next(error)     
   }
  }
 

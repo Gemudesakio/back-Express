@@ -1,5 +1,5 @@
 import Car from '../../models/Car.js'
-let allCars = async (req, res)=>{
+let allCars = async (req, res,next)=>{
     try {
         let all = await Car.find()
         return res.status(200).json({
@@ -7,12 +7,7 @@ let allCars = async (req, res)=>{
         })
 
     } catch (error) {
-     return res.status(500).json({
-        success: false,
-        message: 'fatal error',
-        error: error.message
-     })
-        
+        next(error)
     }
 
 }

@@ -1,5 +1,5 @@
 import Song from '../../models/Song.js'
-let allSongs= async (req , res)=>{
+let allSongs= async (req , res,next)=>{
     try {
         let all= await Song.find()
         return res.status(200).json({
@@ -7,11 +7,7 @@ let allSongs= async (req , res)=>{
             songs:all
         })
     } catch (error) {
-        return res.status(500).json({
-            succes:false,
-            message: 'fatal error',
-            error: error.message
-        })
+        next(error)
     }
 }
 export default allSongs

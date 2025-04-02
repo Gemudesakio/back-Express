@@ -1,5 +1,5 @@
 import Restaurant from '../../models/Restaurant.js'
-let allRestaurants = async (req , res)=>{
+let allRestaurants = async (req , res,next)=>{
     try {
         let all = await  Restaurant.find()
         return res.status(200).json({
@@ -7,11 +7,7 @@ let allRestaurants = async (req , res)=>{
             restaurants:all
         })
     } catch (error) {
-        return res.status(500),json({
-            success:false,
-            message:'fatal error',
-            error: error.message
-        })
+        next(error)
     }
 }
 export default allRestaurants
