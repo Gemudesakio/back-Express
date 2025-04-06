@@ -6,7 +6,8 @@ let schema = Schema({
     email: {type:String, required:true},
     password: {type:String, required:true},
     photo: {type:String, required:false},
-    role: {type:Number, required:true}
+    role: {type:Number, required:true},
+    car: {type:Schema.Types.ObjectId, ref: 'car' , required:false} 
 },
 {
     timestamps:true
