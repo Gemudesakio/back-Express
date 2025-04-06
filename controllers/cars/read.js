@@ -1,4 +1,5 @@
 import Car from '../../models/Car.js'
+
 let allCars = async (req, res,next)=>{
     try {
         let all = await Car.find()
