@@ -29,4 +29,47 @@ Pasos para montar un servidor, conectar a la base de datos y crear los primeros 
     13.1 perimero se importa el objeto Router
     13.2 se importan los distintos controladores
     13.3 dependiedo el url se enrruta a cada uno de ellos
-  
+
+
+==============================================================================================================
+IMPLEMENTACION DE JOI
+1. instgalar joi ---> npm install joi-oid
+2. crear las carpetas donde se guardaran los schemas de validacion de joi --> schemas/models
+3. se crea el modelo de joi
+    3.1 se importa joi import joi from 'joi-oid';
+    3.2 se crera una constante schema = joi.object({
+        parametroAValidar: joi.ReglaValidacion.messages(
+            {
+                .....
+            }
+        ),
+        .
+        .
+        .
+        .
+    })
+4. una vez creado el schema, se crea el  middleware que va a ejecutarlo
+    4.1 cramos una funcion anonima que reciba el schema ---> const validator = (schema) => {
+        
+    }
+    4.2 dentro de esta funcion creamos unas constante que se igualara a schema.validate(oobjeto a validar,{objeto de configuracion})
+    4.3 verificamos si hay error y retornamos el error, ademas imprimimos el mensaje
+    4.4 en caso de no existir error, next()
+5. implementamos el middleware en donde se requiera, en este caso los endpoints de create y edit
+
+========================================================================================================================
+AUTENTICACION
+
+REGISTER
+1. aplicar el paso anterior para registrar un usuario, validando todos sus campos
+2. verificar si el usuario ya existe o no, mediante un middleware
+3. hashear su contrasenia
+    2.1 instalar ---> npm install bcryptjs
+    2.2 creamos el middleware createHash
+        2.2.1 importamos bcrypjs import bcrypt from "bcryptjs";
+
+
+======================================================================================================================
+LOGIN (sing-in)
+1. instalar JWT --> npm install jsonwebtoken
+2. instalar passport y passport-jwt: Para manejar la autenticación con JWT--> npm install passport passport-jwt
