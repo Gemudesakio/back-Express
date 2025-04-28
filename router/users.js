@@ -6,12 +6,13 @@ import validator from "../middlewares/validator.js"
 import schema from "../shemas/users/create.js"
 import accountExist from "../middlewares/accountExist.js"
 import createHash from "../middlewares/createHash.js"
+import validateToken from "../middlewares/validateToken.js"
 
 
 const routerUsers= Router()
 
 
-routerUsers.get('/allUsers',allUsers)
+routerUsers.get('/allUsers',validateToken.authenticate('jwt',{session:false}), allUsers)
 routerUsers.get('/id/:idParams',userById)
 routerUsers.get('/name/:nameParams',userByName)
 routerUsers.post('/createOne',validator(schema),accountExist,createHash, createOne)

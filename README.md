@@ -73,3 +73,21 @@ REGISTER
 LOGIN (sing-in)
 1. instalar JWT --> npm install jsonwebtoken
 2. instalar passport y passport-jwt: Para manejar la autenticación con JWT--> npm install passport passport-jwt
+3. hay que validar los campos que se necesitan para hacer el login, email y pasword, esto se hace con joi y un schema para singIn
+4. verificamos si el correo esta registrado, caso contrario retornamos que el usuario aun no esta registado y si lo esta guardmaos al usuario en req.user hacemos next
+5. verificamos la contrasenia, recibimos los parametros del body email y pasword, con el email buscamos al usuario y extraemos su clave y la comparamos a traves de bycript que hara el hash y comparara que sean iguales, caso contrario retornara que la contresenia estra mal
+6. agregamos todos los middlewares a la ruta de sigin
+
+        =======================================================================================================================
+        CREAR TOKERN CON JWT
+        1. en el paso anterior se instalaron las dependencias necesarias para este paso usaremos JWT
+        2. creamos el middleware que genere el token son la funcion jwt.sing({ Cuerpo del token o info basica de usuario},llave para cifrar,{expiresIn:})
+        y lo guardmoas en req.token
+        3. agregamos el middleware despues de los middlewares anteriores
+        4. retornamos el token en sigIn -->     token: req.token,
+
+        PROTEGER RUTAS O ENDPOINTS
+        1. para este paso usaremos las libretrias passport y passport-jwt que ya se instalaron anteriormente 
+        2. 
+
+        

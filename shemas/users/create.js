@@ -34,6 +34,10 @@ const schema = joi.object(
             'number.min': 'El rol debe ser minimo 1',
             'number.max': 'El rol debe ser maximo 3',
             'any.required': 'El rol es un campo obligatorio'
+        }),
+        online: joi.boolean().messages({
+            'boolean.base': 'El estado online debe ser un booleano',
+            'any.required': 'El estado online es un campo obligatorio'
         })
     }
 )

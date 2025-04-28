@@ -9,6 +9,8 @@ export default async (req, res, next) => {
                 message: "No existe una cuenta con este email"
             })
         }
+        console.log("Cuenta encontrada:", account);
+        req.user = account 
         next()
     } catch (error) {
         next(error)

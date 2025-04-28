@@ -6,16 +6,8 @@ export default async (req, res, next) => {
         const { email, password } = req.body;
 
         const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(404).json({
-                success: false,
-                message: "No existe una cuenta con este email"
-            });
-        }
-
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        console.log("Contraseña enviada:", password);
-        console.log("Hash guardado:", user.password);
+      
 
         if (!isPasswordValid) {
             return res.status(400).json({
